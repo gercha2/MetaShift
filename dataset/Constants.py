@@ -15,9 +15,10 @@ IMAGE_DATA_FOLDER = '/data/GQA/allImages/images/' # replace with your path
 
 ONLY_SELECTED_CLASSES = True # Use False to generate the MetaDataset for all ~400 classes [Warning: Very Large]. 
 SELECTED_CLASSES = [
-    'cat', 'dog',
-    'bus', 'truck',
-    'elephant', 'horse',
+#    'cat', 'dog',
+#    'bus', 'truck',
+#    'elephant', 'horse',
+    'spider', 'squirrel'
     ] 
 
 with open('./meta_data/class_hierarchy.json') as f:
