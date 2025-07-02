@@ -11,14 +11,15 @@ from PIL import Image
 import numpy as np
 
 # Folders
-IMAGE_DATA_FOLDER = '/data/GQA/allImages/images/' # replace with your path
+#IMAGE_DATA_FOLDER = '/data/GQA/allImages/images/' # replace with your path
+IMAGE_DATA_FOLDER = '../images/' # replace with your path
 
 ONLY_SELECTED_CLASSES = True # Use False to generate the MetaDataset for all ~400 classes [Warning: Very Large]. 
 SELECTED_CLASSES = [
-#    'cat', 'dog',
+    'cat', 'dog',
 #    'bus', 'truck',
 #    'elephant', 'horse',
-    'spider', 'squirrel'
+#    'spider', 'squirrel'
     ] 
 
 with open('./meta_data/class_hierarchy.json') as f:

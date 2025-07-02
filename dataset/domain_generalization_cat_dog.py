@@ -3,7 +3,8 @@ Generate MetaDataset with train/test split
 
 """
 
-CUSTOM_SPLIT_DATASET_FOLDER = '/data/MetaShift/Domain-Generalization-Cat-Dog'
+#CUSTOM_SPLIT_DATASET_FOLDER = '/data/MetaShift/Domain-Generalization-Cat-Dog'
+CUSTOM_SPLIT_DATASET_FOLDER = './Domain-Generalization-Cat-Dog'
 
 import pandas as pd 
 import seaborn as sns

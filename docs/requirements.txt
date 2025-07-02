@@ -8,3 +8,13 @@ sphinxcontrib-jsmath
 sphinxcontrib-qthelp
 sphinxcontrib-serializinghtml
 sphinx_fontawesome
+
+
+pandas
+seaborn
+matplotlib
+numpy
+scikit-learn
+scipy
+scikit-image
+pickle
