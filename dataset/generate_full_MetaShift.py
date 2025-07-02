@@ -198,8 +198,8 @@ def draw_subject_set_graph(subject_most_common_list, node_name_to_img_id, trains
     def get_color(i, r_off=1, g_off=1, b_off=1):
         '''Assign a color to a vertex.'''
         r0, g0, b0 = 0, 0, 0
-        # n = 16
-        n = 32 # default running - not consiering edge weights 
+        n = 16
+        #n = 32 # default running - not consiering edge weights 
         low, high = 0.1, 0.9
         span = high - low
         r = low + span * (((i + r_off) * 3) % n) / (n - 1)

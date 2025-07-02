@@ -4,6 +4,7 @@ dataset/meta-graphs/*.jpg
 experiments/distribution_shift/train_output/
 images/
 MetaDataset-full/
+Domain-Generalization-Cat-Dog/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
