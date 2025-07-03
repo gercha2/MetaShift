@@ -143,13 +143,19 @@ def generate_splitted_metadaset():
         # Note: these comes from copy-pasting the community detection results of cat & dog. 
         'cat': {
             # The cat training data is always cat(\emph{sofa + bed}) 
-            'cat(sofa)': {'cat(cup)', 'cat(sofa)', 'cat(chair)'},
+            #'cat(sofa)': {'cat(cup)', 'cat(sofa)', 'cat(chair)'},
+            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'},
             'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'},
         }, 
         'dog': {
             # Experiment 1: the dog training data is dog(\emph{cabinet + bed}) communities, and its distance to dog(\emph{shelf}) is $d$=0.44. 
-            'dog(cabinet)': {'dog(floor)', 'dog(clothes)', 'dog(towel)', 'dog(door)', 'dog(rug)', 'dog(cabinet)'}, 
-            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, 
+            #'dog(cabinet)': {'dog(floor)', 'dog(clothes)', 'dog(towel)', 'dog(door)', 'dog(rug)', 'dog(cabinet)'}, 
+            #'dog(cabinet)': {'dog(window)', 'dog(floor)', 'dog(laptop)', 'dog(door)', 'dog(cabinet)', 'dog(chair)'}, 
+            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, 
+            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, 
+            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(book)', 'dog(clothes)', 'dog(curtain)'}, 
+            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)'}, 
+            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(wall)', 'dog(collar)'}, 
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
             'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'},
@@ -167,11 +173,13 @@ def generate_splitted_metadaset():
 
     test_set_scheme = {
         'cat': {
+            #'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bookshelf)', 'cat(floor)', 'cat(table)', 'cat(books)', 'cat(book)'},
             'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bowl)'},
         },
         'dog': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
-            'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
+            #'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
+            'dog(shelf)': {'dog(television)', 'dog(shelf)', 'dog(books)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
         },
     }
 
