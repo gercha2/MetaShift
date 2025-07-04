@@ -17,9 +17,9 @@ IMAGE_DATA_FOLDER = '../images/' # replace with your path
 ONLY_SELECTED_CLASSES = True # Use False to generate the MetaDataset for all ~400 classes [Warning: Very Large]. 
 SELECTED_CLASSES = [
     'cat', 'dog',
-#    'bus', 'truck',
-#    'elephant', 'horse',
-#    'spider', 'squirrel'
+    'bus', 'truck',
+    'elephant', 'horse',
+    'bowl', 'cup'
     ] 
 
 with open('./meta_data/class_hierarchy.json') as f:
