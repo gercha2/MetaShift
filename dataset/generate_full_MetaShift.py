@@ -243,7 +243,7 @@ def draw_subject_set_graph(subject_most_common_list, node_name_to_img_id, trains
         G,
         alpha=0.75, 
         # with_labels=False,
-        node_size=500,
+        node_size=100, #500
         pos=karate_pos,
         node_color=node_color,
         edgelist=internal,

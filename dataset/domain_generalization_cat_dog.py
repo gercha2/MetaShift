@@ -144,30 +144,38 @@ def generate_splitted_metadaset():
         'cat': {
             # The cat training data is always cat(\emph{sofa + bed}) 
             #'cat(sofa)': {'cat(cup)', 'cat(sofa)', 'cat(chair)'},
-            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'},
-            'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'},
+            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'}, #A
+            'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'}, #B
         }, 
         'dog': {
             # Experiment 1: the dog training data is dog(\emph{cabinet + bed}) communities, and its distance to dog(\emph{shelf}) is $d$=0.44. 
             #'dog(cabinet)': {'dog(floor)', 'dog(clothes)', 'dog(towel)', 'dog(door)', 'dog(rug)', 'dog(cabinet)'}, 
             #'dog(cabinet)': {'dog(window)', 'dog(floor)', 'dog(laptop)', 'dog(door)', 'dog(cabinet)', 'dog(chair)'}, 
-            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, 
+            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, #A
             #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, 
             #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(book)', 'dog(clothes)', 'dog(curtain)'}, 
             #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)'}, 
-            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(wall)', 'dog(collar)'}, 
+            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(wall)', 'dog(collar)'}, #B
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
-            'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'},
-            'dog(box)': {'dog(box)', 'dog(container)', 'dog(food)', 'dog(table)', 'dog(plate)', 'dog(cup)'} ,
+            'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'}, #Exp2 d=1.34
+            #'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)', 'dog(grass)', 'dog(bicycle)', 'dog(container)', 'dog(trash can)', 'dog(umbrella)'}, #Exp2 d=1.31 A
+            'dog(box)': {'dog(box)', 'dog(container)', 'dog(food)', 'dog(table)', 'dog(plate)', 'dog(cup)'} , #Exp2 d=0.73 B
+            #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
+            #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
+            
 
             # Experiment 3: the dog training data is dog(\emph{bench + bike}) with distance $d$=1.12
-            'dog(bench)': {'dog(bench)', 'dog(trash can)'} ,
-            'dog(bike)': {'dog(basket)', 'dog(woman)', 'dog(bike)', 'dog(bicycle)'},
+            'dog(bench)': {'dog(bench)', 'dog(trash can)'} , # Exp3 d=1.03
+            #'dog(bench)': {'dog(fence)','dog(bench)', 'dog(trash can)', 'dog(person)'} , #A
+            'dog(bike)': {'dog(basket)', 'dog(woman)', 'dog(bike)', 'dog(bicycle)'}, #Exp3 d=1.12 B
 
             # Experiment 4: the dog training data is dog(\emph{boat + surfboard}) with distance $d$=1.43.   
-            'dog(boat)': {'dog(frisbee)', 'dog(rope)', 'dog(flag)', 'dog(trees)', 'dog(boat)'},
-            'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)'}, # 'dog(ball)', 
+            'dog(boat)': {'dog(frisbee)', 'dog(rope)', 'dog(flag)', 'dog(trees)', 'dog(boat)'}, #Exp4 d=1.53
+            #'dog(boat)': {'dog(rope)', 'dog(water)', 'dog(trees)', 'dog(boat)'}, #Exp4 d=1.40 A
+            'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)'}, # 'dog(ball)', #Exp4 d=1.40 
+            #'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)', 'dog(people)'}, #Exp4 d=1.43 B
+            #'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)', 'dog(people)', 'dog(man)'}, #Exp4 d=1.13
         }
     }
 
