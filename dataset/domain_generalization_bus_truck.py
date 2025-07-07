@@ -4,7 +4,7 @@ Generate MetaDataset with train/test split
 """
 
 #CUSTOM_SPLIT_DATASET_FOLDER = '/data/MetaShift/Domain-Generalization-Cat-Dog'
-CUSTOM_SPLIT_DATASET_FOLDER = '../Domain-Generalization-Cat-Dog'
+CUSTOM_SPLIT_DATASET_FOLDER = '../Domain-Generalization-Bus-Truck'
 
 import pandas as pd 
 import seaborn as sns
@@ -123,12 +123,12 @@ def generate_splitted_metadaset():
     ##################################
     # Removing ambiguous images that have both cats and dogs 
     ##################################
-    trainsg_dupes = node_name_to_img_id['cat(dog)'] # can also use 'dog(cat)'
+    trainsg_dupes = node_name_to_img_id['bus(truck)'] # can also use 'truck(bus)'
     subject_str_to_Graphs = dict()
 
 
-    for subject_str in ['cat', 'dog']:
-        subject_data = [ x for x in subject_group_summary_dict[subject_str].keys() if x not in ['cat(dog)', 'dog(cat)'] ]
+    for subject_str in ['bus', 'truck']:
+        subject_data = [ x for x in subject_group_summary_dict[subject_str].keys() if x not in ['bus(truck)', 'truck(bus)'] ]
         # print('subject_data', subject_data)
         ##################################
         # Print detected communities in Meta-Graph
@@ -140,70 +140,54 @@ def generate_splitted_metadaset():
 
 
     train_set_scheme = {
-        # Note: these comes from copy-pasting the community detection results of cat & dog. 
-        'cat': {
-            # The cat training data is always cat(\emph{sofa + bed}) 
-            #'cat(sofa)': {'cat(cup)', 'cat(sofa)', 'cat(chair)'},
-            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'}, #A
-            'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'}, #B
+        # Note: these comes from copy-pasting the community detection results of bus & truck. 
+        'bus': {
+            # The bus training data is always bus(\emph{clock + traffic light}) 
+            'bus(clock)': {'bus(clock)', 'bus(tower)', 'bus(street light)', 'bus(pole)', 'bus(window)'}, #A
+            'bus(traffic light)':  {'bus(pole)', 'bus(window)', 'bus(street light)', 'bus(suv)', 'bus(traffic light)'}, #B
         }, 
-        'dog': {
-            # Experiment 1: the dog training data is dog(\emph{cabinet + bed}) communities, and its distance to dog(\emph{shelf}) is $d$=0.44. 
-            #'dog(cabinet)': {'dog(floor)', 'dog(clothes)', 'dog(towel)', 'dog(door)', 'dog(rug)', 'dog(cabinet)'}, 
-            #'dog(cabinet)': {'dog(window)', 'dog(floor)', 'dog(laptop)', 'dog(door)', 'dog(cabinet)', 'dog(chair)'}, 
-            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, #A
-            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, 
-            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(book)', 'dog(clothes)', 'dog(curtain)'}, 
-            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)'}, 
-            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(wall)', 'dog(collar)'}, #B
+        'truck': {
+            # Experiment 1: the dog training data is dog(\emph{cone + fence}) communities, and its distance to truck(\emph{airplane}) is $d$=0.81
+            'truck(cone)': {'truck(cone)', 'truck(cones)', 'truck(airplane)', 'truck(building)', 'truck(ground)'}, #d = 0.39
+            'truck(fence)': {'truck(fence)', 'truck(horse)', 'truck(bed)', 'truck(sign)', 'truck(grass)', 'truck(house)', 'truck(palm tree)'}, #d = 0.39
 
-            # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
-            'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'}, #Exp2 d=1.34
-            #'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)', 'dog(grass)', 'dog(bicycle)', 'dog(container)', 'dog(trash can)', 'dog(umbrella)'}, #Exp2 d=1.31 A
-            'dog(box)': {'dog(box)', 'dog(container)', 'dog(food)', 'dog(table)', 'dog(plate)', 'dog(cup)'} , #Exp2 d=0.73 B
-            #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
-            #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
-            
+            # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=1.20
+            'truck(bike)': {'truck(bike)', 'truck(helmet)', 'truck(building)', 'truck(ground)'}, #Exp2 d=1.34
+            'truck(mirror)': {'truck(mirror)', 'truck(taxi)', 'truck(horse)', 'truck(van)', 'truck(dog)', 'truck(trees)', 'truck(car)'} , #Exp2 d=0.73 B          
 
-            # Experiment 3: the dog training data is dog(\emph{bench + bike}) with distance $d$=1.12
-            'dog(bench)': {'dog(bench)', 'dog(trash can)'} , # Exp3 d=1.03
-            #'dog(bench)': {'dog(fence)','dog(bench)', 'dog(trash can)', 'dog(person)'} , #A
-            'dog(bike)': {'dog(basket)', 'dog(woman)', 'dog(bike)', 'dog(bicycle)'}, #Exp3 d=1.12 B
+            # Experiment 3: the dog training data is dog(\emph{bench + bike}) with distance $d$=1.42
+            'truck(flag)': {'truck(flag)', 'truck(american flag)', 'flag(tree)', 'flag(sign)', 'flag(car)'} , # Exp3 d=1.03
+            'truck(tower)': {'truck(tower)', 'truck(airplane)', 'truck(ground)', 'truck(building)'}, #Exp3 d=1.12 B
 
-            # Experiment 4: the dog training data is dog(\emph{boat + surfboard}) with distance $d$=1.43.   
-            'dog(boat)': {'dog(frisbee)', 'dog(rope)', 'dog(flag)', 'dog(trees)', 'dog(boat)'}, #Exp4 d=1.53
-            #'dog(boat)': {'dog(rope)', 'dog(water)', 'dog(trees)', 'dog(boat)'}, #Exp4 d=1.40 A
-            'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)'}, # 'dog(ball)', #Exp4 d=1.40 
-            #'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)', 'dog(people)'}, #Exp4 d=1.43 B
-            #'dog(surfboard)': {'dog(water)', 'dog(surfboard)', 'dog(sand)', 'dog(people)', 'dog(man)'}, #Exp4 d=1.13
+            # Experiment 4: the dog training data is dog(\emph{boat + surfboard}) with distance $d$=1.52
+            'truck(traffic light)': {'truck(traffic light)', 'truck(trees)', 'truck(sign)', 'truck(car)'}, #Exp4 d=1.53
+            'truck(dog)': {'truck(dog)', 'truck(mirror)', 'truck(grass)', 'truck(car)', 'truck(tree)', 'truck(sign)'}, # 'dog(ball)', #Exp4 d=1.40 
         }
     }
 
     test_set_scheme = {
-        'cat': {
-            #'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bookshelf)', 'cat(floor)', 'cat(table)', 'cat(books)', 'cat(book)'},
-            'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bowl)'},
+        'bus': {
+            'bus(airplane)': {'bus(airplane)', 'bus(truck)', 'bus(car)', 'bus(sky)'},
         },
-        'dog': {
+        'truck': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
-            #'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
-            'dog(shelf)': {'dog(television)', 'dog(shelf)', 'dog(books)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
+            'truck(airplane)': {'truck(ladder)', 'truck(cone)', 'truck(cart)', 'truck(tower)', 'truck(airplane)', 'truck(ground)', 'truck(building)'}, 
         },
     }
 
     additional_test_set_scheme = {
-        'cat': {
-            'cat(grass)': {'cat(house)', 'cat(car)', 'cat(grass)', 'cat(bird)'},
-            'cat(sink)': {'cat(sink)', 'cat(bottle)', 'cat(faucet)', 'cat(towel)', 'cat(toilet)'}, 
-            'cat(computer)': {'cat(speaker)', 'cat(computer)', 'cat(screen)', 'cat(laptop)', 'cat(computer mouse)', 'cat(keyboard)', 'cat(monitor)', 'cat(desk)',}, 
-            'cat(box)': {'cat(box)', 'cat(paper)', 'cat(suitcase)', 'cat(bag)',}, 
-            'cat(book)': {'cat(books)', 'cat(book)', 'cat(television)', 'cat(bookshelf)', 'cat(blinds)',},
+        'bus': {
+            'bus(backpack)': {'bus(backpack)', 'bus(bag)', 'bus(purse)'},
+            'bus(cellphone)': {'bus(cellphone)', 'bus(camera)', 'bus(phone)'}, 
+            'bus(house)': {'bus(house)', 'bus(bridge)', 'bus(wall)', 'bus(trees)'}, 
+            'bus(vehicle)': {'bus(vehicle)', 'bus(taxi)', 'bus(vehicles)', 'bus(van)', 'bus(car)', 'bus(cars)'}, 
+            'bus(street light)': {'bus(street light)', 'bus(traffic light)', 'bus(suv)', 'bus(pole)', 'bus(lamp)'},
         },
-        'dog': {
-            'dog(sofa)': {'dog(sofa)', 'dog(television)', 'dog(carpet)',  'dog(phone)', 'dog(book)',}, 
-            'dog(grass)': {'dog(house)', 'dog(grass)', 'dog(horse)', 'dog(cow)', 'dog(sheep)','dog(animal)'}, 
-            'dog(vehicle)': {'dog(car)', 'dog(motorcycle)', 'dog(truck)', 'dog(bike)', 'dog(basket)', 'dog(bicycle)', 'dog(skateboard)', }, 
-            'dog(cap)': {'dog(cap)', 'dog(scarf)', 'dog(jacket)', 'dog(toy)', 'dog(collar)', 'dog(tie)'},
+        'truck': {
+            'truck(people)': {'truck(people)', 'truck(woman)', 'truck(child)',  'truck(men)', 'truck(girl)', 'truck(child)'}, 
+            'truck(motorcycle)': {'truck(motorcycle)', 'truck(bike)', 'truck(bicycle)', 'truck(helmet)'}, 
+            'truck(table)': {'truck(table)', 'truck(chair)', 'truck(bed)'}, 
+            'truck(vehicle)': {'truck(vehicle)', 'truck(vehicles)', 'truck(train)', 'truck(taxi)', 'truck(car)', 'truck(van)'},
         },
     }
 
@@ -232,7 +216,7 @@ def generate_splitted_metadaset():
     community_name_to_img_id = test_community_name_to_img_id.copy()
     community_name_to_img_id.update(train_community_name_to_img_id)
     community_name_to_img_id.update(additional_test_community_name_to_img_id)
-    dog_community_name_list = sorted(train_set_scheme['dog']) + sorted(test_set_scheme['dog']) + sorted(additional_test_set_scheme['dog'])
+    dog_community_name_list = sorted(train_set_scheme['truck']) + sorted(test_set_scheme['truck']) + sorted(additional_test_set_scheme['truck'])
     
     G = build_subset_graph(dog_community_name_list, community_name_to_img_id, trainsg_dupes=set(), subject_str=None)
 
@@ -242,16 +226,16 @@ def generate_splitted_metadaset():
         )
     
     for subset_A, subset_B in [
-        ['dog(cabinet)', 'dog(bed)'],
-        ['dog(bag)', 'dog(box)'],
-        ['dog(bench)', 'dog(bike)'],
-        ['dog(boat)', 'dog(surfboard)'],
+        ['truck(cone)', 'truck(fence)'],
+        ['truck(bike)', 'truck(mirror)'],
+        ['truck(flag)', 'truck(tower)'],
+        ['truck(traffic light)', 'truck(dog)'],
     ]:
-        distance_A = np.linalg.norm(spectral_pos[subset_A.replace('(', '\n(')] - spectral_pos['dog\n(shelf)'])
-        distance_B = np.linalg.norm(spectral_pos[subset_B.replace('(', '\n(')] - spectral_pos['dog\n(shelf)'])
+        distance_A = np.linalg.norm(spectral_pos[subset_A.replace('(', '\n(')] - spectral_pos['truck\n(airplane)'])
+        distance_B = np.linalg.norm(spectral_pos[subset_B.replace('(', '\n(')] - spectral_pos['truck\n(airplane)'])
         
         print('Distance from {}+{} to {}: {}'.format(
-            subset_A, subset_B, 'dog(shelf)', 
+            subset_A, subset_B, 'truck(airplane)', 
             0.5 * (distance_A + distance_B)
             )
         )
