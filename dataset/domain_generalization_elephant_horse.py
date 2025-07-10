@@ -171,20 +171,20 @@ def generate_splitted_metadaset():
             #'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bookshelf)', 'cat(floor)', 'cat(table)', 'cat(books)', 'cat(book)'},
             'horse(barn)': {'horse(barn)', 'horse(trees)', 'horse(jockey)', 'horse(fence)'},
         },
-        #'elephant': {
+        'elephant': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
             #'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
-            'elephant(barn)': {'dog(television)', 'dog(shelf)', 'dog(books)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
-        #},
+            'elephant(house)': {'elephant(house)', 'elephant(trees)', 'elephant(tree)', 'elephant(building)'},
+            },
     }
 
     additional_test_set_scheme = {
         'elephant': {
-            'elephant(trees)': {'elephant(trees)', 'elephant(leaves)', 'elephant(tree)', 'elephant(grass)', 'elephant(bush)'},
-            'elephant(animal)': {'elephant(bird)', 'elephant(animal)', 'elephant()', 'elephant(towel)', 'elephant(toilet)'}, 
-            'elephant(computer)': {'elephant(speaker)', 'elephant(computer)', 'elephant(screen)', 'elephant(laptop)', 'elephant(computer mouse)', 'elephant(keyboard)', 'elephant(monitor)', 'elephant(desk)',}, 
-            'elephant(box)': {'elephant(box)', 'elephant(paper)', 'elephant(suitcase)', 'elephant(bag)',}, 
-            'elephant(book)': {'elephant(books)', 'elephant(book)', 'elephant(television)', 'elephant(bookshelf)', 'elephant(blinds)',},
+            'elephant(trees)': {'elephant(trees)', 'elephant(leaves)', 'elephant(tree)', 'elephant(grass)', 'elephant(brush)'},
+            'elephant(animal)': {'elephant(bird)', 'elephant(animal)', }, 
+            'elephant(child)': {'elephant(child)', 'elephant(boy)', 'elephant(girl)'}, 
+            'elephant(building)': {'elephant(building)', 'elephant(wall)', 'elephant(door)'}, 
+            'elephant(rock)': {'elephant(rock)', 'elephant(fence)', 'elephant(grass)'},
         },
         'horse': {
             'horse(car)': {'horse(car)', 'horse(bus)', 'horse(cart)', 'horse(carriage)'}, 
@@ -219,9 +219,21 @@ def generate_splitted_metadaset():
     community_name_to_img_id = test_community_name_to_img_id.copy()
     community_name_to_img_id.update(train_community_name_to_img_id)
     community_name_to_img_id.update(additional_test_community_name_to_img_id)
-    dog_community_name_list = sorted(train_set_scheme['horse']) + sorted(test_set_scheme['horse']) + sorted(additional_test_set_scheme['horse'])
+    #horse_community_name_list = sorted(train_set_scheme['horse']) + sorted(test_set_scheme['horse']) + sorted(additional_test_set_scheme['horse'])
     
-    G = build_subset_graph(dog_community_name_list, community_name_to_img_id, trainsg_dupes=set(), subject_str=None)
+    # Combine all horse community names from all schemes
+    horse_community_name_set = set(train_set_scheme['horse']) | set(test_set_scheme['horse']) | set(additional_test_set_scheme['horse'])
+    
+    # Only keep those that are present in community_name_to_img_id
+    horse_community_name_list = [k for k in sorted(horse_community_name_set) if k in community_name_to_img_id]
+
+    # Now filter the dict to only these keys
+    filtered_community_name_to_img_id = {k: community_name_to_img_id[k] for k in horse_community_name_list}
+    
+    # Now build the graph
+    G = build_subset_graph(horse_community_name_list, filtered_community_name_to_img_id, trainsg_dupes=set(), subject_str=None)
+    
+    #G = build_subset_graph(horse_community_name_list, community_name_to_img_id, trainsg_dupes=set(), subject_str=None)
 
     spectral_pos = nx.spectral_layout(
         G=G, 
