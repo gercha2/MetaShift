@@ -5,6 +5,8 @@ experiments/distribution_shift/train_output/
 images/
 MetaDataset-full/
 Domain-Generalization-Cat-Dog/
+Domain-Generalization-eleplhant-horse/
+Domain-Generalization-Bus-Truck/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
