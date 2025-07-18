@@ -7,7 +7,7 @@ MetaDataset-full/
 Domain-Generalization-Cat-Dog/
 Domain-Generalization-elephant-horse/
 Domain-Generalization-Bus-Truck/
-Domain-Generalization-Cup-Bowl/
+Domain-Generalization-Bowl-Cup/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
