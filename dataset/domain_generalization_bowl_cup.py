@@ -148,28 +148,28 @@ def generate_splitted_metadaset():
         'cup': {
             # Experiment 1: the cup training data is cup(\emph{cabinet + bed}) communities, and its distance to cup(\emph{shelf}) is $d$=0.44. 
             'cup(knife)': {'cup(knife)', 'cup(placemat)', 'cup(food)', 'cup(fork)', 'cup(plate)' }, #A
-            'cup(tray)': {'cup(tray)', 'cup(soda)', 'cup(bowl)', 'cup(plate)', 'cup(soup)', 'cup(napkin)', 'cup(hot dog)', 'cup(bun)'}, #B
+            'cup(tray)': {'cup(tray)', 'cup(placemat)', 'cup(plate)', 'cup(bowl)', 'cup(napkin)', 'cup(knife)', 'cup(spoon)', 'cup(fork)'}, #B
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
             'cup(water)': {'cup(water)', 'cup(salt shaker)', 'cup(soup)', 'cup(food)', 'cup(plate)', 'cup(bowl)'}, #Exp2 d=1.34
             'cup(cabinet)': {'cup(cabinet)', 'cup(counter)', 'cup(oven)', 'cup(stove)', 'cup(utensils)', 'cup(refrigerator)', 'cup(microwave)', 'cup(toilet)', 'cup(faucet)', 'cup(towel)', 'cup(sink)', 'cup(countertop)', 'cup(drawer)'} , #Exp2 d=0.73 B          
 
             # Experiment 3: the cup training data is cup(\emph{bench + bike}) with distance $d$=1.12
-            'cup(computer)': {'cup(computer)', 'cup(screen)', 'cup(phone)', 'cup(laptop)', 'cup(speaker)', 'cup(books)', 'cup(scissors)', 'cup(keyboard)', 'cup(desk)', 'cup(monitor)', 'cup(papers)'} , # Exp3 d=1.03
-            'cup(lamp)': {'cup(lamp)', 'cup(curtain)', 'cup(can)', 'cup(chair)', 'cup(man)', 'cup(woman)', 'cup(picture)', 'cup(couch)', 'cup(pillow)', 'cup(remote control)', 'cup(bed)', 'cup(blanket)'}, #Exp3 d=1.12 B
+            'cup(computer)': {'cup(computer)', 'cup(screen)', 'cup(phone)', 'cup(laptop)', 'cup(speaker)', 'cup(keyboard)', 'cup(desk)', 'cup(monitor)'} , # Exp3 d=1.03
+            'cup(lamp)': {'cup(lamp)', 'cup(curtain)', 'cup(bed)', 'cup(chair)', 'cup(picture)', 'cup(couch)', 'cup(pillow)', 'cup(remote control)', 'cup(bed)', 'cup(blanket)'}, #Exp3 d=1.12 B
 
             # Experiment 4: the cup training data is cup(\emph{boat + surfboard}) with distance $d$=1.43.   
-            'cup(toilet)': {'cup(toilet)', 'cup(mirror)', 'cup(towel)', 'cup(faucet)', 'cup(sink)', 'cup(counter)', 'cup(cabinet)', 'cup(bottle)'}, #Exp4 d=1.5
-            'cup(box)': {'cup(box)', 'cup(umbrella)', 'cup(man)', 'cup(woman)', 'cup(chair)', 'cup(can)', 'cup(bag)'}, # 'dog(ball)', #Exp4 d=1.40 
+            'cup(toilet)': {'cup(toilet)', 'cup(mirror)', 'cup(towel)', 'cup(faucet)', 'cup(sink)', 'cup(counter)', 'cup(cabinet)'}, #Exp4 d=1.5
+            'cup(box)': {'cup(box)', 'cup(bag)', 'cup(purse)', 'cup(backpack)'}, # 'dog(ball)', #Exp4 d=1.40 
         }
     }
 
     test_set_scheme = {
         'bowl': {
-            'bowl(coffee)': {'bowl(coffee)', 'bowl(coffee maker)', 'bowl(milk)', 'bowl(bacon)', 'bowl(bacon)'},
+            'bowl(coffee)': {'bowl(coffee)', 'bowl(coffee maker)', 'bowl(milk)', 'bowl(counter)'},
         },
         'cup': {
-            'cup(coffee)': {'cup(coffee)', 'cup(saucer)', 'cup(toast)', 'cup(spoon)', 'cup(plate)', 'cup(eggs)'}, 
+            'cup(coffee)': {'cup(coffee)', 'cup(saucer)', 'cup(toast)', 'cup(spoon)', 'cup(plate)', 'cup(tea)', 'cup(tray)'}, 
         },
     }
 
@@ -177,15 +177,15 @@ def generate_splitted_metadaset():
         'bowl': {
             'bowl(toilet)': {'bowl(toilet)', 'bowl(toilet paper)', 'bowl(soap)', 'bowl(towel)', 'bowl(sink)', 'cup(mirror)'},
             'bowl(vegetables)': {'bowl(carrots)', 'bowl(broccoli)', 'bowl(carrot)', 'bowl(onions)', 'bowl(onion)', 'cup(tomatoes)', 'cup(cucumber)', 'cup(lettuce)', 'cup(pepper)', 'cup(potato)', 'cup(potatoes)', 'cup(tomato)'}, 
-            'bowl(bed)': {'bowl(bed)', 'bowl(blanket)', 'bowl(pillow)', 'bowl(remote control)', 'bowl(television)'}, 
+            'bowl(bed)': {'bowl(bed)', 'bowl(blanket)', 'bowl(pillow)'}, 
             'bowl(blender)': {'bowl(blender)', 'bowl(stove)', 'bowl(oven)', 'bowl(refrigerator)', 'bowl(dishwasher)', 'bowl(cabinets)', 'bowl(shelf)'}, 
             'bowl(pizza)': {'bowl(pizza)', 'bowl(sandwich)', 'bowl(fries)', 'bowl(salad)', 'bowl(bacon)', 'cup(eggs)', 'cup(cake)'},
         },
         'cup': {
             'cup(people)': {'cup(people)', 'cup(man)', 'cup(woman)',  'cup(person)', 'cup(baby)', 'cup(girl)', 'cup(lady)', 'cup(child)'}, 
             'cup(table)': {'cup(table)', 'cup(wine glass)', 'cup(wine)', 'cup(coffee cup)', 'cup(beer)','cup(drink)', 'cup(water bottle)', 'cup(can)'}, 
-            'cup(liquid)': {'cup(liquid)', 'cup(milk)', 'cup(tea)', 'cup(juice)', 'cup(water bottle)', 'cup(soda)', 'cup(can)'}, 
-            'cup(food)': {'cup(food)', 'cup(sandwich)', 'cup(eggs)', 'cup(hot dog)', 'cup(bread)', 'cup(salad)'},
+            'cup(beverage)': {'cup(beverage)', 'cup(milk)', 'cup(tea)', 'cup(juice)', 'cup(water bottle)', 'cup(soda)', 'cup(can)', 'cup(water)', 'cup(coffee)', 'cup(juice)'}, 
+            'cup(food)': {'cup(food)', 'cup(sandwich)', 'cup(eggs)', 'cup(hot dog)', 'cup(bread)', 'cup(salad)', 'cup(meat)', 'cup(egg)'},
         },
     }
 

@@ -4,7 +4,7 @@ Generate MetaDataset with train/test split
 """
 
 #CUSTOM_SPLIT_DATASET_FOLDER = '/data/MetaShift/Domain-Generalization-Cat-Dog'
-CUSTOM_SPLIT_DATASET_FOLDER = '../Domain-Generalization-eleplhant-horse'
+CUSTOM_SPLIT_DATASET_FOLDER = '../Domain-Generalization-elephant-horse'
 
 import pandas as pd 
 import seaborn as sns
@@ -149,7 +149,7 @@ def generate_splitted_metadaset():
         }, 
         'horse': {
             # Experiment 1: the dog training data is dog(\emph{cabinet + bed}) communities, and its distance to dog(\emph{shelf}) is $d$=0.44. 
-            'horse(dirt)': {'horse(dirt)', 'horse(cowboy)', 'horse(fence)', 'horse()', 'dog(chair)', 'dog(window)'}, #A
+            'horse(dirt)': {'horse(dirt)', 'horse(cowboy)', 'horse(fence)', 'dog(chair)', 'dog(window)'}, #A
             'horse(trees)': {'horse(trees)', 'horse(mountains)', 'horse(barn)', 'horse(jockey)', 'horse(grass)', 'horse(house)', 'horse(bench)', 'horse(fence)'}, #B
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
@@ -169,27 +169,27 @@ def generate_splitted_metadaset():
     test_set_scheme = {
         'horse': {
             #'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bookshelf)', 'cat(floor)', 'cat(table)', 'cat(books)', 'cat(book)'},
-            'horse(barn)': {'horse(barn)', 'horse(trees)', 'horse(jockey)', 'horse(fence)'},
+            'horse(barn)': {'horse(barn)', 'horse(animal)', 'horse(house)', 'horse(fence)', 'horse(jockey)'},
         },
         'elephant': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
             #'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
-            'elephant(house)': {'elephant(house)', 'elephant(trees)', 'elephant(tree)', 'elephant(building)'},
+            'elephant(house)': {'elephant(house)', 'elephant(door)', 'elephant(building)'},
             },
     }
 
     additional_test_set_scheme = {
         'elephant': {
-            'elephant(trees)': {'elephant(trees)', 'elephant(leaves)', 'elephant(tree)', 'elephant(grass)', 'elephant(brush)'},
+            'elephant(trees)': {'elephant(trees)', 'elephant(leaves)', 'elephant(tree)', 'elephant(branch)'},
             'elephant(animal)': {'elephant(bird)', 'elephant(animal)', }, 
-            'elephant(child)': {'elephant(child)', 'elephant(boy)', 'elephant(girl)'}, 
+            'elephant(people)': {'elephant(people)', 'elephant(boy)', 'elephant(girl)', 'elephant(person)', 'elephant(woman)', 'elephant(man)', 'elephant(child)'}, 
             'elephant(building)': {'elephant(building)', 'elephant(wall)', 'elephant(door)'}, 
-            'elephant(rock)': {'elephant(rock)', 'elephant(fence)', 'elephant(grass)'},
+            'elephant(bush)': {'elephant(rock)', 'elephant(bush)', 'elephant(grass)', 'elephant(tree)', 'elephant(trees)'},
         },
         'horse': {
-            'horse(car)': {'horse(car)', 'horse(bus)', 'horse(cart)', 'horse(carriage)'}, 
+            'horse(car)': {'horse(car)', 'horse(bus)', 'horse(cart)', 'horse(carriage)', 'horse(truck)'}, 
             'horse(building)': {'horse(building)', 'horse(statue)', 'horse(tower)'}, 
-            'horse(people)': {'horse(people)', 'horse(woman)', 'horse(person)', 'horse(child)', 'horse(men)'}, 
+            'horse(people)': {'horse(people)', 'horse(woman)', 'horse(person)', 'horse(child)', 'horse(men)', 'horse(girl)', 'horse(boy)'}, 
             'horse(animal)': {'horse(animal)', 'horse(cow)', 'horse(dog)', 'horse(bird)'},
         },
     }

@@ -143,51 +143,51 @@ def generate_splitted_metadaset():
         # Note: these comes from copy-pasting the community detection results of bus & truck. 
         'bus': {
             # The bus training data is always bus(\emph{clock + traffic light}) 
-            'bus(clock)': {'bus(clock)', 'bus(tower)', 'bus(street light)', 'bus(pole)', 'bus(window)'}, #A
-            'bus(traffic light)':  {'bus(pole)', 'bus(window)', 'bus(street light)', 'bus(suv)', 'bus(traffic light)'}, #B
+            'bus(clock)': {'bus(clock)', 'bus(woman)', 'bus(person)'}, #A
+            'bus(traffic light)':  {'bus(pole)', 'bus(street light)', 'bus(suv)', 'bus(traffic light)', 'bus(fire hydrant)'}, #B
         }, 
         'truck': {
             # Experiment 1: the dog training data is dog(\emph{cone + fence}) communities, and its distance to truck(\emph{airplane}) is $d$=0.81
-            'truck(cone)': {'truck(cone)', 'truck(cones)', 'truck(airplane)', 'truck(building)', 'truck(ground)'}, #d = 0.39
-            'truck(fence)': {'truck(fence)', 'truck(horse)', 'truck(bed)', 'truck(sign)', 'truck(grass)', 'truck(house)', 'truck(palm tree)'}, #d = 0.39
+            'truck(cone)': {'truck(cone)', 'truck(cones)', 'truck(airplane)', 'truck(sign)', 'truck(ground)'}, #d = 0.39
+            'truck(fence)': {'truck(fence)', 'truck(horse)', 'truck(grass)', 'truck(house)', 'truck(palm tree)', 'truck(trees)'}, #d = 0.39
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=1.20
-            'truck(bike)': {'truck(bike)', 'truck(helmet)', 'truck(building)', 'truck(ground)'}, #Exp2 d=1.34
-            'truck(mirror)': {'truck(mirror)', 'truck(taxi)', 'truck(horse)', 'truck(van)', 'truck(dog)', 'truck(trees)', 'truck(car)'} , #Exp2 d=0.73 B          
+            'truck(bike)': {'truck(bike)', 'truck(helmet)', 'truck(bicycle)', 'truck(motorbicycle)'}, #Exp2 d=1.34
+            'truck(mirror)': {'truck(mirror)', 'truck(taxi)', 'truck(cars)', 'truck(van)', 'truck(car)'} , #Exp2 d=0.73 B          
 
             # Experiment 3: the dog training data is dog(\emph{bench + bike}) with distance $d$=1.42
-            'truck(flag)': {'truck(flag)', 'truck(american flag)', 'flag(tree)', 'flag(sign)', 'flag(car)'} , # Exp3 d=1.03
-            'truck(tower)': {'truck(tower)', 'truck(airplane)', 'truck(ground)', 'truck(building)'}, #Exp3 d=1.12 B
+            'truck(flag)': {'truck(flag)', 'truck(american flag)', 'flag(sign)'} , # Exp3 d=1.03
+            'truck(tower)': {'truck(tower)', 'truck(ladder)', 'truck(building)'}, #Exp3 d=1.12 B
 
             # Experiment 4: the dog training data is dog(\emph{boat + surfboard}) with distance $d$=1.52
-            'truck(traffic light)': {'truck(traffic light)', 'truck(trees)', 'truck(sign)', 'truck(car)'}, #Exp4 d=1.53
-            'truck(dog)': {'truck(dog)', 'truck(mirror)', 'truck(grass)', 'truck(car)', 'truck(tree)', 'truck(sign)'}, # 'dog(ball)', #Exp4 d=1.40 
+            'truck(traffic light)': {'truck(traffic light)', 'truck(vehicles)', 'truck(vehicle)', 'truck(car)', 'truck(suv)'}, #Exp4 d=1.53
+            'truck(dog)': {'truck(dog)', 'truck(horse)'}, # 'dog(ball)', #Exp4 d=1.40 
         }
     }
 
     test_set_scheme = {
         'bus': {
-            'bus(airplane)': {'bus(airplane)', 'bus(truck)', 'bus(car)', 'bus(sky)'},
+            'bus(airplane)': {'bus(airplane)', 'bus(truck)', 'bus(bus driver)', 'bus(sky)'}, #Exp1 d=0.99
         },
         'truck': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
-            'truck(airplane)': {'truck(ladder)', 'truck(cone)', 'truck(cart)', 'truck(tower)', 'truck(airplane)', 'truck(ground)', 'truck(building)'}, 
+            'truck(airplane)': {'truck(airplane)', 'truck(vehicle)', 'truck(cart)', 'truck(vehicles)'}, # Exp1 d=0.81
         },
     }
 
     additional_test_set_scheme = {
         'bus': {
-            'bus(backpack)': {'bus(backpack)', 'bus(bag)', 'bus(purse)'},
+            'bus(people)': {'bus(people)', 'bus(man)', 'bus(person)', 'bus(lady)', 'bus(child)', 'bus(pedestrian)', 'bus(woman)', 'bus(girl)', 'bus(men)'},
             'bus(cellphone)': {'bus(cellphone)', 'bus(camera)', 'bus(phone)'}, 
             'bus(house)': {'bus(house)', 'bus(bridge)', 'bus(wall)', 'bus(trees)'}, 
-            'bus(vehicle)': {'bus(vehicle)', 'bus(taxi)', 'bus(vehicles)', 'bus(van)', 'bus(car)', 'bus(cars)'}, 
-            'bus(street light)': {'bus(street light)', 'bus(traffic light)', 'bus(suv)', 'bus(pole)', 'bus(lamp)'},
+            'bus(vehicles)': {'bus(vehicles)', 'bus(taxi)', 'bus(vehicle)', 'bus(van)', 'bus(car)', 'bus(cars)', 'bus(suv)'}, 
+            'bus(street light)': {'bus(street light)', 'bus(traffic light)', 'bus(fire hydrant)', 'bus(pole)', 'bus(lamp)'},
         },
         'truck': {
             'truck(people)': {'truck(people)', 'truck(woman)', 'truck(child)',  'truck(men)', 'truck(girl)', 'truck(child)'}, 
-            'truck(motorcycle)': {'truck(motorcycle)', 'truck(bike)', 'truck(bicycle)', 'truck(helmet)'}, 
+            'truck(motorcycle)': {'truck(motorcycle)', 'truck(bike)', 'truck(bicycle)'}, 
             'truck(table)': {'truck(table)', 'truck(chair)', 'truck(bed)'}, 
-            'truck(vehicle)': {'truck(vehicle)', 'truck(vehicles)', 'truck(train)', 'truck(taxi)', 'truck(car)', 'truck(van)'},
+            'truck(vehicles)': {'truck(vehicle)', 'truck(vehicles)', 'truck(train)', 'truck(taxi)', 'truck(car)', 'truck(van)', 'truck(suv)'},
         },
     }
 

@@ -144,23 +144,24 @@ def generate_splitted_metadaset():
         'cat': {
             # The cat training data is always cat(\emph{sofa + bed}) 
             #'cat(sofa)': {'cat(cup)', 'cat(sofa)', 'cat(chair)'},
-            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'}, #A
-            'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'}, #B
+            'cat(sofa)': {'cat(pillow)', 'cat(sofa)', 'cat(wall)'}, #Exp1 Real d=0.43
+            #'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(remote control)', 'cat(pillow)', 'cat(couch)'}, #Exp paper d=0.43
+            'cat(bed)':  {'cat(bed)', 'cat(comforter)', 'cat(sheet)', 'cat(blanket)', 'cat(wall)', 'cat(pillow)', 'cat(lamp)'}, #Exp real d=0.43
         }, 
         'dog': {
             # Experiment 1: the dog training data is dog(\emph{cabinet + bed}) communities, and its distance to dog(\emph{shelf}) is $d$=0.44. 
             #'dog(cabinet)': {'dog(floor)', 'dog(clothes)', 'dog(towel)', 'dog(door)', 'dog(rug)', 'dog(cabinet)'}, 
             #'dog(cabinet)': {'dog(window)', 'dog(floor)', 'dog(laptop)', 'dog(door)', 'dog(cabinet)', 'dog(chair)'}, 
-            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, #A
+            'dog(cabinet)': {'dog(wall)', 'dog(cabinet)', 'dog(laptop)', 'dog(door)', 'dog(chair)', 'dog(window)'}, #Exp1 Real d=0.43
             #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, 
             #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(book)', 'dog(clothes)', 'dog(curtain)'}, 
-            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)'}, 
-            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(wall)', 'dog(collar)'}, #B
+            #'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(remote control)', 'dog(pillow)', 'dog(lamp)', 'dog(couch)', 'dog(books)', 'dog(curtain)'}, # Exp1 paper d=0.44
+            'dog(bed)': {'dog(blanket)', 'dog(bed)', 'dog(sheet)', 'dog(pillow)', 'dog(lamp)', 'dog(clothes)', 'dog(curtain)', 'dog(collar)', 'dog(wall)'}, #Exp1 Real d=0.43
 
             # Experiment 2: the dog training data is dog(\emph{bag + box}), and its distance to dog(\emph{shelf}) is $d$=0.71. 
-            'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'}, #Exp2 d=1.34
-            #'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)', 'dog(grass)', 'dog(bicycle)', 'dog(container)', 'dog(trash can)', 'dog(umbrella)'}, #Exp2 d=1.31 A
-            'dog(box)': {'dog(box)', 'dog(container)', 'dog(food)', 'dog(table)', 'dog(plate)', 'dog(cup)'} , #Exp2 d=0.73 B
+            #'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'}, #Exp2 paper d=0.71
+            'dog(bag)': {'dog(bag)', 'dog(backpack)', 'dog(purse)'}, #Exp2 Real d=0.75 A
+            'dog(box)': {'dog(box)', 'dog(container)', 'dog(food)', 'dog(table)', 'dog(plate)', 'dog(cup)'} , #Exp2 d=0.75 B
             #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
             #'dog(box)': {'dog(box)', 'dog(window)', 'dog(collar)', 'dog(wall)', 'dog(floor)'}, #Exp2 d=0.98
             
@@ -182,12 +183,15 @@ def generate_splitted_metadaset():
     test_set_scheme = {
         'cat': {
             #'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bookshelf)', 'cat(floor)', 'cat(table)', 'cat(books)', 'cat(book)'},
-            'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bowl)'},
+            'cat(shelf)': {'cat(container)', 'cat(shelf)', 'cat(vase)', 'cat(bowl)'}, #Exp1 paper d=0.42
+            #'cat(shelf)': {'cat(container)', 'cat(bookshelf)', 'cat(vase)', 'cat(bowl)'}, #Exp1 paper d=0.42
+            #'cat(shelf)': {'cat(container)', 'cat(bookshelf)', 'cat(vase)', 'cat(television)'}, #Exp1 real d=0.42
+            
         },
         'dog': {
             # In MetaDataset paper, the test images are all dogs. However, for completeness, we also provide cat images here. 
-            #'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
-            'dog(shelf)': {'dog(television)', 'dog(shelf)', 'dog(books)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, 
+            'dog(shelf)': {'dog(desk)', 'dog(screen)', 'dog(laptop)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, # Exp1 paper d=0.0.43
+            #'dog(shelf)': {'dog(television)', 'dog(books)', 'dog(shelf)', 'dog(picture)', 'dog(chair)'}, # Exp1 Real d=0.0.42
         },
     }
 

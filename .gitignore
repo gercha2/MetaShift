@@ -9,6 +9,7 @@ Domain-Generalization-elephant-horse/
 Domain-Generalization-Bus-Truck/
 Domain-Generalization-Bowl-Cup/
 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
