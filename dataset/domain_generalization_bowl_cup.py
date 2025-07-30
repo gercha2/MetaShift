@@ -142,7 +142,7 @@ def generate_splitted_metadaset():
         'bowl': {
             # The bowl training data is always bowl(\emph{sofa + bed}) 
             #'bowl(sofa)': {'bowl(cup)', 'bowl(sofa)', 'bowl(chair)'},
-            'bowl(fruit)': {'bowl(fruit)', 'bowl(orange)', 'bowl(apple)', 'bowl(apples)', 'bowl(banana)'}, #A
+            'bowl(fruit)': {'bowl(fruit)', 'bowl(apple)', 'bowl(apples)', 'bowl(banana)'}, #A
             'bowl(tray)':  {'bowl(tray)', 'bowl(donut)', 'bowl(spoon)', 'bowl(chopsticks)', 'bowl(juice)', 'bowl(napkin)'}, #B
         }, 
         'cup': {
