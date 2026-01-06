@@ -8,6 +8,8 @@ Domain-Generalization-Cat-Dog/
 Domain-Generalization-elephant-horse/
 Domain-Generalization-Bus-Truck/
 Domain-Generalization-Bowl-Cup/
+Node2Vec-Distance-Analysis/
+dataset/metashift_node2vec_distance_comparison.py/
 
 
 # Byte-compiled / optimized / DLL files
