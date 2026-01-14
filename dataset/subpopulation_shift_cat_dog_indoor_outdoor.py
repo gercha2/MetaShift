@@ -43,9 +43,9 @@ To facilitate other potential uses, we also outputs an unmixed version, where we
 
 """
 
-CUSTOM_SPLIT_DATASET_FOLDER = '/data/MetaShift/MetaShift-Cat-Dog-indoor-outdoor'
+CUSTOM_SPLIT_DATASET_FOLDER = '../MetaShift-Cat-Dog-indoor-outdoor'
 
-SUBPOPULATION_SHIFT_DATASET_FOLDER = '/data/MetaShift/MetaShift-subpopulation-shift'
+SUBPOPULATION_SHIFT_DATASET_FOLDER = '../MetaShift-subpopulation-shift'
 
 
 import pandas as pd 
@@ -298,22 +298,22 @@ def generate_splitted_metadaset():
 
     
     copy_images(
-        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'val_out_of_domain', 'cat', use_symlink=True,
+        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'val_out_of_domain', 'cat', use_symlink=False, #default True
         img_IDs = cat_outdoor_test + cat_indoor_test,
         )
     copy_images(
-        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'val_out_of_domain', 'dog', use_symlink=True,
+        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'val_out_of_domain', 'dog', use_symlink=False, #default True
         img_IDs = dog_indoor_test + dog_outdoor_test,
         )
     
     # plan: 850 training, 
     NUM_MINORITY_IMG = 100 # 10-150: 10, 50, 100, 150
     copy_images(
-        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'train', 'cat', use_symlink=True,
+        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'train', 'cat', use_symlink=False, #default True
         img_IDs = cat_outdoor_train[:NUM_MINORITY_IMG] + cat_indoor_train[NUM_MINORITY_IMG:],
         )
     copy_images(
-        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'train', 'dog', use_symlink=True,
+        SUBPOPULATION_SHIFT_DATASET_FOLDER, 'train', 'dog', use_symlink=False, #default True
         img_IDs = dog_indoor_train[:NUM_MINORITY_IMG] + dog_outdoor_train[NUM_MINORITY_IMG:],
         )
     print('NUM_MINORITY_IMG', NUM_MINORITY_IMG)

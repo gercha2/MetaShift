@@ -2,6 +2,7 @@ dataset/meta-graphs/*.jpg
 *.csv 
 *.zip
 experiments/distribution_shift/train_output/
+experiments/distribution_shift/test_output/
 images/
 MetaDataset-full/
 Domain-Generalization-Cat-Dog/
@@ -10,6 +11,9 @@ Domain-Generalization-Bus-Truck/
 Domain-Generalization-Bowl-Cup/
 Node2Vec-Distance-Analysis/
 dataset/metashift_node2vec_distance_comparison.py/
+MetaShift-Cat-Dog-indoor-outdoor/
+MetaShift-subpopulation-shift/
+
 
 
 # Byte-compiled / optimized / DLL files

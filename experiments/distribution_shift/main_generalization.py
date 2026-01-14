@@ -1,14 +1,7 @@
 """Example Commands
-clear && CUDA_VISIBLE_DEVICES=3 python main_generalization.py --num-domains 2 --algorithm ERM 
 
-clear && CUDA_VISIBLE_DEVICES=4 python main_generalization.py --num-domains 2 --algorithm GroupDRO 
-
-clear && CUDA_VISIBLE_DEVICES=5 python main_generalization.py --num-domains 2 --algorithm IRM 
-
-clear && CUDA_VISIBLE_DEVICES=6 python main_generalization.py --num-domains 2 --algorithm CORAL 
-
-clear && CUDA_VISIBLE_DEVICES=7 python main_generalization.py --num-domains 2 --algorithm CDANN 
-
+IN POWER SHELL:
+clear; $env:CUDA_VISIBLE_DEVICES=3; python main_generalization.py --num-domains 2 --algorithm ERM
 
 care: self.group_indices[groups_local][:50]
 """
@@ -95,7 +88,7 @@ class SubsetShiftDatasetManager():
         group_to_idx = defaultdict(list) # reverse mapping 
         for data_idx, sample in enumerate(train_dataset.samples):
             image_path, target = sample
-            imageID = image_path.split('/')[-1].split('.')[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
+            imageID = os.path.splitext(os.path.basename(image_path))[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
             for groups_local in imageID_to_group[imageID]:
                 group_to_idx[groups_local].append(data_idx)
         self.group_indices = group_to_idx
@@ -171,7 +164,7 @@ class TrainingDataset_Wrapper(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         image_path, target = self.samples[index]
-        imageID = image_path.split('/')[-1].split('.')[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
+        imageID = os.path.splitext(os.path.basename(image_path))[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
         sample = self.loader(image_path)
         sample = self.transform(sample)
         return sample, imageID, target
@@ -212,7 +205,7 @@ def report_every_set_acc(my_dataset, args, split='val'):
     group_to_preds = defaultdict(lambda: defaultdict(list))
     for idx, sample in enumerate(my_dataset.samples):
         image_path, target = sample
-        imageID = image_path.split('/')[-1].split('.')[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
+        imageID = os.path.splitext(os.path.basename(image_path))[0] # image_path = IMAGE_DATA_FOLDER + imageID + '.jpg'
         assert target_all[idx] == target
         for groups_local in set(imageID_to_group[imageID]):
             group_to_preds[groups_local]['target'].append(target) 
